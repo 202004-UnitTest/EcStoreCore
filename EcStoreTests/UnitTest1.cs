@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using EcStoreLib;
+using Moq;
+using Moq.Protected;
 using NSubstitute;
 using NSubstitute.ReceivedExtensions;
 using NUnit.Framework;
@@ -10,15 +12,22 @@ namespace Tests
     [TestFixture]
     public class OrderServiceTests
     {
-        private OrderServiceForTest _target;
-        private IBookDao _bookDao;
+        private Mock<OrderService> _target;
+        private Mock<IBookDao> _bookDao;
 
         [SetUp]
         public void Setup()
         {
-            _target = new OrderServiceForTest();
-            _bookDao = Substitute.For<IBookDao>();
-            _target.SetBookDao(_bookDao);
+            _target = new Mock<OrderService>();
+            _bookDao = new Mock<IBookDao>();
+
+            _target.Protected()
+                .Setup<IBookDao>("GetBookDao")
+                .Returns(_bookDao.Object);
+
+//            _target = new OrderServiceForTest();
+//            _bookDao = Substitute.For<IBookDao>(); 
+//            _target.SetBookDao(_bookDao);
         }
 
         [Test]
@@ -33,7 +42,7 @@ namespace Tests
                 new Order() {Type = "Book"},
             });
 
-            _target.SyncBookOrders();
+            _target.Object.SyncBookOrders();
 
             ShouldInsertOrder(2, "Book");
             ShouldNotInsertCdOrder("CD");
@@ -41,43 +50,49 @@ namespace Tests
 
         private void ShouldNotInsertCdOrder(string type)
         {
-            _bookDao.DidNotReceive().Insert(Arg.Is<Order>(order => order.Type == type));
+            _bookDao.Verify(x => x.Insert(It.Is<Order>(order => order.Type == type)), Times.Never); 
+//            _bookDao.DidNotReceive().Insert(Arg.Is<Order>(order => order.Type == type));
         }
 
         private void ShouldInsertOrder(int times, string type)
         {
-            _bookDao.Received(times).Insert(Arg.Is<Order>(order => order.Type == type));
+            _bookDao.Verify(x => x.Insert(It.Is<Order>(order => order.Type == type)), Times.Exactly(times)); 
+//            _bookDao.Received(times).Insert(Arg.Is<Order>(order => order.Type == type));
         }
 
         private void GivenOrders(List<Order> orders)
         {
-            _target.SetOrders(orders);
+            _target.Protected()
+                .Setup<List<Order>>("GetOrders")
+                .Returns(orders);
+            
+//            _target.SetOrders(orders);
         }
     }
 
-    internal class OrderServiceForTest : OrderService
-    {
-        private List<Order> _orders;
-        private IBookDao _bookDao;
-
-        internal void SetBookDao(IBookDao bookDao)
-        {
-            _bookDao = bookDao;
-        }
-
-        protected override IBookDao GetBookDao()
-        {
-            return _bookDao;
-        }
-
-        internal void SetOrders(List<Order> orders)
-        {
-            _orders = orders;
-        }
-
-        protected override List<Order> GetOrders()
-        {
-            return _orders;
-        }
-    }
+//    internal class OrderServiceForTest : OrderService
+//    {
+//        private List<Order> _orders;
+//        private IBookDao _bookDao;
+//
+//        internal void SetBookDao(IBookDao bookDao)
+//        {
+//            _bookDao = bookDao;
+//        }
+//
+//        protected override IBookDao GetBookDao()
+//        {
+//            return _bookDao;
+//        }
+//
+//        internal void SetOrders(List<Order> orders)
+//        {
+//            _orders = orders;
+//        }
+//
+//        protected override List<Order> GetOrders()
+//        {
+//            return _orders;
+//        }
+//    }
 }
