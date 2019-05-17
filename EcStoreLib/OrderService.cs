@@ -17,14 +17,19 @@ namespace EcStoreLib
             // only get orders of book
             var ordersOfBook = orders.Where(x => x.Type == "Book");
 
-            var bookDao = new BookDao();
+            var bookDao = GetBookDao();
             foreach (var order in ordersOfBook)
             {
                 bookDao.Insert(order);
             }
         }
 
-        private List<Order> GetOrders()
+        protected virtual IBookDao GetBookDao()
+        {
+            return new BookDao();
+        }
+
+        protected virtual List<Order> GetOrders()
         {
             // parse csv file to get orders
             var result = new List<Order>();
@@ -78,9 +83,14 @@ namespace EcStoreLib
         public string CustomerName { get; set; }
     }
 
-    public class BookDao
+    public interface IBookDao
     {
-        internal void Insert(Order order)
+        void Insert(Order order);
+    }
+
+    public class BookDao : IBookDao
+    {
+        public void Insert(Order order)
         {
             // directly depend on some web service
             //var client = new HttpClient();
