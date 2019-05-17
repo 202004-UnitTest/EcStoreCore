@@ -10,9 +10,15 @@ namespace Tests
     [TestFixture]
     public class OrderServiceTests
     {
+        private OrderServiceForTest _target;
+        private IBookDao _bookDao;
+
         [SetUp]
         public void Setup()
         {
+            _target = new OrderServiceForTest();
+            _bookDao = Substitute.For<IBookDao>();
+            _target.SetBookDao(_bookDao);
         }
 
         [Test]
@@ -20,20 +26,32 @@ namespace Tests
         {
             // hard to isolate dependency to unit test
 
-            var target = new OrderServiceForTest();
-            target.SetOrders(new List<Order>
+            GivenOrders(new List<Order>
             {
                 new Order() {Type = "Book"},
                 new Order() {Type = "CD"},
                 new Order() {Type = "Book"},
             });
 
-            var bookDao = Substitute.For<IBookDao>();
-            target.SetBookDao(bookDao);
-            target.SyncBookOrders();
+            _target.SyncBookOrders();
 
-            bookDao.Received(2).Insert(Arg.Is<Order>(order => order.Type == "Book"));
-            bookDao.DidNotReceive().Insert(Arg.Is<Order>(order => order.Type == "CD"));
+            ShouldInsertOrder(2, "Book");
+            ShouldNotInsertCdOrder("CD");
+        }
+
+        private void ShouldNotInsertCdOrder(string type)
+        {
+            _bookDao.DidNotReceive().Insert(Arg.Is<Order>(order => order.Type == type));
+        }
+
+        private void ShouldInsertOrder(int times, string type)
+        {
+            _bookDao.Received(times).Insert(Arg.Is<Order>(order => order.Type == type));
+        }
+
+        private void GivenOrders(List<Order> orders)
+        {
+            _target.SetOrders(orders);
         }
     }
 
