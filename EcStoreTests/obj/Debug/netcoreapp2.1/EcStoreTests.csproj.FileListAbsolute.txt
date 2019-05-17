@@ -1,0 +1,15 @@
+C:\Users\joeychen\RiderProjects\201905UnitTest\EcStoreCore\EcStoreTests\bin\Debug\netcoreapp2.1\NUnit3.TestAdapter.dll
+C:\Users\joeychen\RiderProjects\201905UnitTest\EcStoreCore\EcStoreTests\bin\Debug\netcoreapp2.1\NUnit3.TestAdapter.pdb
+C:\Users\joeychen\RiderProjects\201905UnitTest\EcStoreCore\EcStoreTests\bin\Debug\netcoreapp2.1\nunit.engine.netstandard.dll
+C:\Users\joeychen\RiderProjects\201905UnitTest\EcStoreCore\EcStoreTests\bin\Debug\netcoreapp2.1\Mono.Cecil.dll
+C:\Users\joeychen\RiderProjects\201905UnitTest\EcStoreCore\EcStoreTests\bin\Debug\netcoreapp2.1\EcStoreTests.deps.json
+C:\Users\joeychen\RiderProjects\201905UnitTest\EcStoreCore\EcStoreTests\bin\Debug\netcoreapp2.1\EcStoreTests.runtimeconfig.json
+C:\Users\joeychen\RiderProjects\201905UnitTest\EcStoreCore\EcStoreTests\bin\Debug\netcoreapp2.1\EcStoreTests.runtimeconfig.dev.json
+C:\Users\joeychen\RiderProjects\201905UnitTest\EcStoreCore\EcStoreTests\bin\Debug\netcoreapp2.1\EcStoreTests.dll
+C:\Users\joeychen\RiderProjects\201905UnitTest\EcStoreCore\EcStoreTests\bin\Debug\netcoreapp2.1\EcStoreTests.pdb
+C:\Users\joeychen\RiderProjects\201905UnitTest\EcStoreCore\EcStoreTests\obj\Debug\netcoreapp2.1\EcStoreTests.csprojAssemblyReference.cache
+C:\Users\joeychen\RiderProjects\201905UnitTest\EcStoreCore\EcStoreTests\obj\Debug\netcoreapp2.1\EcStoreTests.csproj.CoreCompileInputs.cache
+C:\Users\joeychen\RiderProjects\201905UnitTest\EcStoreCore\EcStoreTests\obj\Debug\netcoreapp2.1\EcStoreTests.AssemblyInfoInputs.cache
+C:\Users\joeychen\RiderProjects\201905UnitTest\EcStoreCore\EcStoreTests\obj\Debug\netcoreapp2.1\EcStoreTests.AssemblyInfo.cs
+C:\Users\joeychen\RiderProjects\201905UnitTest\EcStoreCore\EcStoreTests\obj\Debug\netcoreapp2.1\EcStoreTests.dll
+C:\Users\joeychen\RiderProjects\201905UnitTest\EcStoreCore\EcStoreTests\obj\Debug\netcoreapp2.1\EcStoreTests.pdb

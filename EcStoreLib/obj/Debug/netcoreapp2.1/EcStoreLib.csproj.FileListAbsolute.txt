@@ -1,0 +1,9 @@
+C:\Users\joeychen\RiderProjects\201905UnitTest\EcStoreCore\EcStoreLib\bin\Debug\netcoreapp2.1\EcStoreLib.deps.json
+C:\Users\joeychen\RiderProjects\201905UnitTest\EcStoreCore\EcStoreLib\bin\Debug\netcoreapp2.1\EcStoreLib.dll
+C:\Users\joeychen\RiderProjects\201905UnitTest\EcStoreCore\EcStoreLib\bin\Debug\netcoreapp2.1\EcStoreLib.pdb
+C:\Users\joeychen\RiderProjects\201905UnitTest\EcStoreCore\EcStoreLib\obj\Debug\netcoreapp2.1\EcStoreLib.csprojAssemblyReference.cache
+C:\Users\joeychen\RiderProjects\201905UnitTest\EcStoreCore\EcStoreLib\obj\Debug\netcoreapp2.1\EcStoreLib.csproj.CoreCompileInputs.cache
+C:\Users\joeychen\RiderProjects\201905UnitTest\EcStoreCore\EcStoreLib\obj\Debug\netcoreapp2.1\EcStoreLib.AssemblyInfoInputs.cache
+C:\Users\joeychen\RiderProjects\201905UnitTest\EcStoreCore\EcStoreLib\obj\Debug\netcoreapp2.1\EcStoreLib.AssemblyInfo.cs
+C:\Users\joeychen\RiderProjects\201905UnitTest\EcStoreCore\EcStoreLib\obj\Debug\netcoreapp2.1\EcStoreLib.dll
+C:\Users\joeychen\RiderProjects\201905UnitTest\EcStoreCore\EcStoreLib\obj\Debug\netcoreapp2.1\EcStoreLib.pdb
