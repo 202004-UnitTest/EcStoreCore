@@ -80,7 +80,7 @@ namespace EcStoreLib
 
     public class BookDao
     {
-        internal void Insert(Order order)
+        public void Insert(Order order)
         {
             // directly depend on some web service
             //var client = new HttpClient();
